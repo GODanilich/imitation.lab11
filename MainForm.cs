@@ -154,7 +154,8 @@ namespace IMLab11
             {
                 a = valueMin + step * i;
                 b = valueMin + step * (i + 1);
-                expectedProbability[i] = Normal.CDF(empyricalMean, Math.Sqrt(empyricalVariance), b) - Normal.CDF(empyricalVariance, Math.Sqrt(empyricalVariance), a) * N;
+                //expectedProbability[i] = (Normal.CDF(empyricalMean, Math.Sqrt(empyricalVariance), b) - Normal.CDF(empyricalVariance, Math.Sqrt(empyricalVariance), a)) * N;
+                expectedProbability[i] = (normalDist.CumulativeDistribution(b) - normalDist.CumulativeDistribution(a)) * N;
             }
             Chi = 0;
             for (int i = 0; i < intervalCount; i++)
