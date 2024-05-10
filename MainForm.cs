@@ -154,12 +154,12 @@ namespace IMLab11
             {
                 a = valueMin + step * i;
                 b = valueMin + step * (i + 1);
-                expectedProbability[i] = Normal.CDF(empyricalMean, Math.Sqrt(empyricalVariance), b) - Normal.CDF(empyricalVariance, Math.Sqrt(empyricalVariance), a);
+                expectedProbability[i] = Normal.CDF(empyricalMean, Math.Sqrt(empyricalVariance), b) - Normal.CDF(empyricalVariance, Math.Sqrt(empyricalVariance), a) * N;
             }
             Chi = 0;
             for (int i = 0; i < intervalCount; i++)
             {
-                Chi += Math.Pow( statistics[i] - expectedProbability[i] * N, 2) / (expectedProbability[i] * N);
+                Chi += Math.Pow( statistics[i] - expectedProbability[i], 2) / (expectedProbability[i]);
             }
 
         }

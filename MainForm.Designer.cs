@@ -48,7 +48,7 @@
             // 
             // MeanBox
             // 
-            MeanBox.Location = new Point(218, 107);
+            MeanBox.Location = new Point(142, 70);
             MeanBox.Name = "MeanBox";
             MeanBox.Size = new Size(100, 23);
             MeanBox.TabIndex = 6;
@@ -56,7 +56,7 @@
             // VarianceBoxLabel
             // 
             VarianceBoxLabel.AutoSize = true;
-            VarianceBoxLabel.Location = new Point(89, 136);
+            VarianceBoxLabel.Location = new Point(13, 99);
             VarianceBoxLabel.Name = "VarianceBoxLabel";
             VarianceBoxLabel.Size = new Size(70, 15);
             VarianceBoxLabel.TabIndex = 9;
@@ -64,46 +64,47 @@
             // 
             // VarianceBox
             // 
-            VarianceBox.Location = new Point(218, 133);
+            VarianceBox.Location = new Point(142, 96);
             VarianceBox.Name = "VarianceBox";
             VarianceBox.Size = new Size(100, 23);
             VarianceBox.TabIndex = 8;
             // 
             // chart1
             // 
+            chart1.BackColor = Color.WhiteSmoke;
             chartArea1.Name = "ChartArea1";
             chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             chart1.Legends.Add(legend1);
-            chart1.Location = new Point(479, 12);
+            chart1.Location = new Point(248, 12);
             chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Частоты";
             chart1.Series.Add(series1);
-            chart1.Size = new Size(650, 464);
+            chart1.Size = new Size(998, 464);
             chart1.TabIndex = 13;
             chart1.Text = "chart1";
             // 
             // NumberOfTrialsLabel
             // 
             NumberOfTrialsLabel.AutoSize = true;
-            NumberOfTrialsLabel.Location = new Point(89, 165);
+            NumberOfTrialsLabel.Location = new Point(13, 128);
             NumberOfTrialsLabel.Name = "NumberOfTrialsLabel";
-            NumberOfTrialsLabel.Size = new Size(126, 15);
+            NumberOfTrialsLabel.Size = new Size(102, 15);
             NumberOfTrialsLabel.TabIndex = 15;
-            NumberOfTrialsLabel.Text = "Количество попыток:";
+            NumberOfTrialsLabel.Text = "Размер выборки:";
             // 
             // NumberOfTrialsBox
             // 
-            NumberOfTrialsBox.Location = new Point(218, 162);
+            NumberOfTrialsBox.Location = new Point(142, 125);
             NumberOfTrialsBox.Name = "NumberOfTrialsBox";
             NumberOfTrialsBox.Size = new Size(100, 23);
             NumberOfTrialsBox.TabIndex = 14;
             // 
             // StartButton
             // 
-            StartButton.Location = new Point(177, 228);
+            StartButton.Location = new Point(29, 289);
             StartButton.Name = "StartButton";
             StartButton.Size = new Size(75, 23);
             StartButton.TabIndex = 16;
@@ -141,7 +142,7 @@
             // MeanBoxLabel
             // 
             MeanBoxLabel.AutoSize = true;
-            MeanBoxLabel.Location = new Point(89, 110);
+            MeanBoxLabel.Location = new Point(13, 73);
             MeanBoxLabel.Name = "MeanBoxLabel";
             MeanBoxLabel.Size = new Size(84, 15);
             MeanBoxLabel.TabIndex = 22;
@@ -151,6 +152,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(1258, 561);
             Controls.Add(MeanBoxLabel);
             Controls.Add(ChiLabel);
