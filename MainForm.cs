@@ -1,11 +1,13 @@
 using System;
 using System.Windows.Forms.DataVisualization.Charting;
 using MathNet.Numerics.Distributions;
+using Accord.Statistics.Testing;
 
 namespace IMLab11
 {
     public partial class MainForm : Form
     {
+        ShapiroWilkTest shapiro;
         double[] statistics;
         double[] relativeStatistics;
         double[] expectedProbability;
@@ -28,22 +30,10 @@ namespace IMLab11
         {
             InitializeComponent();
         }
-        double GenerateCLT(double mean, double variance)
+        double BoxMuller(double mean, double variance)
         {
-
-            int n = 1000; // Количество случайных величин, которые будут суммироваться
-
-            // Суммирование n случайных чисел с равномерным распределением на интервале [0, 1]
-            double sum = 0;
-            for (int i = 0; i < n; i++)
-            {
-                sum += random.NextDouble();
-            }
-
-            // Преобразование суммы к нужному математическому ожиданию и дисперсии
-            double transformedSum = mean + Math.Sqrt(variance / n) * (sum - n / 2.0);
-
-            return transformedSum; // Возвращаем сгенерированное случайное число
+            double z = Math.Cos(2 * Math.PI * random.NextDouble()) * Math.Sqrt(-2 * Math.Log(random.NextDouble()));
+            return mean + z * Math.Sqrt(variance);
         }
         void Clear()
         {
@@ -99,7 +89,7 @@ namespace IMLab11
 
             for (int i = 0; i < N; i++)
             {
-                value[i] = GenerateCLT(empyricalMean, empyricalVariance);
+                value[i] = BoxMuller(empyricalMean, empyricalVariance);
             }
 
             valueMax = value.Max();
@@ -162,6 +152,8 @@ namespace IMLab11
             {
                 Chi += Math.Pow( statistics[i] - expectedProbability[i], 2) / (expectedProbability[i]);
             }
+
+            //shapiro = new ShapiroWilkTest(value);
 
         }
         private void StartButton_Click(object sender, EventArgs e)
